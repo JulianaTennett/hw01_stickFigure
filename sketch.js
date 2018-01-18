@@ -1,3 +1,7 @@
+//Juliana Tennett
+//Homework Assignment 01: Stick Figure
+//Title: A Stick Figure of How I Looked Yesterday 
+
 // var img;
 // function preload() {
 // 	img = loadImage('assets/hair.svg');
