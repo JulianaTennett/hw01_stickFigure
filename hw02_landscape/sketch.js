@@ -1,3 +1,10 @@
+var cloudLeft;
+var cloudRight;
+function preload() {
+	cloudLeft = loadImage('assets/cloudLeft.svg');
+	cloudRight = loadImage('assets/cloudRight.svg')
+}
+
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 }
@@ -34,20 +41,12 @@ function draw() {
 	//STARS
 
 
-	//CLOUD1
-	fill(white);
-	// bezier(0, 50, 500, 10, 700, 350, 0, 250);
+	//CLOUDLEFT
+	image(cloudLeft, 0, h/14, w/1.75, h/3);
 
-	beginShape();
-	vertex(0, h/13.5);
-	bezierVertex(150, 35, 300, 60, 225, 50); //200, 40 is the anchor
-	bezierVertex(400, 125, w/2+50, 125, w/2, 125);
-	bezierVertex(600, 100, 600, 200, 600, 140);
-	bezierVertex(400, 200, w/2+50, 200, w/2, 200,);
-	bezierVertex(225, 250, 375, 225, 300, 200);
-	vertex(200, 255);
-	vertex(0, h/2.75);
-	endShape();
+
+	//CLOUDRIGHT
+	image(cloudRight, window.innerWidth-w/12, h/1.95, w/12, h/7);
 
 
 	//BLDG1
