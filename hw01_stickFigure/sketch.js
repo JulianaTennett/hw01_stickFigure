@@ -1,21 +1,20 @@
 //Juliana Tennett
 //Homework Assignment 01: Stick Figure
-//Title: A Stick Figure of How I Looked Yesterday 
+//Title: A Stick Figure of How I Looked Yesterday
 
-// var img;
-// function preload() {
-// 	img = loadImage('assets/hair.svg');
-// }
+var hair;
+function preload() {
+	hair = loadImage('assets/hair.svg');
+}
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	// image(img, 500, 200, 100, 100);
 }
 
 function draw() {
 
 	//VARIABLES
-	var skin = color(249, 239, 235);
+	var skin = color('#F7E7E6');
 	var black = color(0, 0, 0);
 	var bean = color(165, 122, 81);
 	var boot = color(88,82,76);
@@ -106,4 +105,6 @@ function draw() {
 	curveVertex(520, 225);
 	curveVertex(520, 225);
 	endShape();
+
+	image(hair, 426, 125, 152, 143);
 }
