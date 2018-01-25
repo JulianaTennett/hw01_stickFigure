@@ -6,13 +6,15 @@
 //omg my left cloud is BLURRY!
 //clouds should proportionately scale WxH when screen width is adjusted :(
 //why does my background not scale as the screen width gets bigger after loading smaller??
-//why did i have to load windowheight/width variables in setup and draw
+//how can i define colors outside of any function so that they can be used in every function?
 
 //IMAGES
 var cloudLeft;
 var cloudRight;
 
 //VARIABLES
+var w = innerWidth;
+var h = innerHeight;
 
 
 function preload() {
@@ -23,10 +25,6 @@ function preload() {
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	noStroke();
-
-	//i dont wanna type these out
-	var w = windowWidth;
-	var h = windowHeight;
 
 	//SKY COLORS
 	var skyBlue = color(194, 218, 227);
@@ -88,39 +86,57 @@ function draw() {
 
 
 	//BLDG1
-	bldgDraw();
+	bldgDraw(w/15, h/2.25, h/3.1, h/1.75, '#FFE6CD', '#F4CBA2');
+	// winda(130, 365, '#F7DCC0');
 }
 
-function winda() {
-	fill('#F7DCC0');
-	for (var windaX = 130; windaX < 320; windaX += 70) {
-		for (var windaY = 365; windaY < innerHeight; windaY += 95) { //for every x, do a y too
-			rect(windaX, windaY, 50, 50);
-		}
-	}
-}
+// function winda(xWinda, yWinda, color) {
+// 	//xWinda = starting x
+// 	//yWinda = starting y
+// 	//rowWinda = number of windows rows
+// 	//columnWinda = number of windows in each row
+// 	//color = color
+// 	fill(color);
+// 	for (var windaX = xWinda; windaX < 320; windaX += 70) {
+// 		for (var windaY = yWinda; windaY < innerHeight; windaY += 95) { //for every x, do a y too
+// 			rect(windaX, windaY, 50, 50);
+// 		}
+// 	}
+// }
 
-function frontFace() {
-	fill('#FFE6CD');
-	rect(innerWidth/14, innerHeight/2.25, innerHeight/3.1, innerHeight/1.75);
-}
+// function frontFace(xFront, yFront, wFront, hFront, color) {
+// 	fill(color);
+// 	rect(xFront, yFront, wFront, hFront);
+// 	// rect(w/14, h/2.25, h/3.1, h/1.75);
+// }
+//
+// function shadowFace(xShadow, yShadow, wShadow, hShadow, color) {
+// 	fill(color);
+// 	beginShape();
+// 		vertex(xShadow, yShadow);
+// 		vertex(wShadow, hShadow);
+// 		vertex(wShadow, h);
+// 		vertex(xShadow, h);
+// 	endShape();
+// }
 
-function shadowFace() {
-	fill('#F4CBA2');
+// function bldgDraw(x, y, wBldg, hBldg, colorFace, colorShadow, colorWinda, rowWinda, columnWinda) {
+// 	frontFace(x, y, wBldg, hBldg, colorFace);
+// 	shadowFace();
+// 	winda();
+// }
+
+// function bldgDraw(x, y, wBldg, hBldg, colorFront, colorShadow, colorWinda, rowWinda, columnWinda) {
+function bldgDraw(x, y, wBldg, hBldg, colorFront, colorShadow) {
+	//frontFace
+	fill(colorFront);
+	rect(x, y, wBldg, hBldg);
+	//shadowFace
+	fill(colorShadow);
 	beginShape();
-	vertex(0, innerHeight/1.9);
-	vertex(innerWidth/14, innerHeight/2.25);
-	vertex(innerWidth/14, innerHeight);
-	vertex(0, innerHeight);
+		vertex(x-(wBldg/2.5), y+(hBldg/11));
+		vertex(x, y);
+		vertex(x, h);
+		vertex(x-(wBldg/2.5), h);
 	endShape();
-}
-
-function position() {
-
-}
-
-function bldgDraw() {
-	frontFace();
-	shadowFace();
-	winda();
 }
