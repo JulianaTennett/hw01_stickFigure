@@ -79,27 +79,6 @@ function draw() {
 	//CLOUDLEFT
 	image(cloudLeft, 0, h/14, w/1.75, h/3);
 
-	//BLDG1
-	//face
-	fill(orange);
-	rect(w/14, h/2.25, w/6, h/1.75);
-	//shadow
-	fill(orangeShadow);
-	beginShape();
-	vertex(0, h/1.9);
-	vertex(w/14, h/2.25);
-	vertex(w/14, h);
-	vertex(0, h);
-	endShape();
-
-	//windows
-	fill(orangeWind);
-	for (var windaX = 130; windaX < 320; windaX += 70) {
-		for (var windaY = 365; windaY < innerHeight; windaY += 95) { //for every x, do a y too
-			rect(windaX, windaY, 50, 50);
-		}
-	}
-
 	//CLOUDRIGHT
 	image(cloudRight, window.innerWidth-w/12, h/1.95, w/12, h/7);
 
@@ -108,4 +87,40 @@ function draw() {
 	rect(0, 0+h-h/25, w, h/25);
 
 
+	//BLDG1
+	bldgDraw();
+}
+
+function winda() {
+	fill('#F7DCC0');
+	for (var windaX = 130; windaX < 320; windaX += 70) {
+		for (var windaY = 365; windaY < innerHeight; windaY += 95) { //for every x, do a y too
+			rect(windaX, windaY, 50, 50);
+		}
+	}
+}
+
+function frontFace() {
+	fill('#FFE6CD');
+	rect(innerWidth/14, innerHeight/2.25, innerHeight/3.1, innerHeight/1.75);
+}
+
+function shadowFace() {
+	fill('#F4CBA2');
+	beginShape();
+	vertex(0, innerHeight/1.9);
+	vertex(innerWidth/14, innerHeight/2.25);
+	vertex(innerWidth/14, innerHeight);
+	vertex(0, innerHeight);
+	endShape();
+}
+
+function position() {
+
+}
+
+function bldgDraw() {
+	frontFace();
+	shadowFace();
+	winda();
 }
