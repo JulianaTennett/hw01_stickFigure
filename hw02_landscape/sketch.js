@@ -6,6 +6,7 @@
 //omg my left cloud is BLURRY!
 //clouds should proportionately scale WxH when screen width is adjusted :(
 //why does my background not scale as the screen width gets bigger after loading smaller??
+//why did i have to load windowheight/width variables in setup and draw
 
 //IMAGES
 var cloudLeft;
@@ -27,7 +28,7 @@ function setup() {
 	var w = windowWidth;
 	var h = windowHeight;
 
-	//COLORS
+	//SKY COLORS
 	var skyBlue = color(194, 218, 227);
 	var skyBluePurple = color(212, 210, 225);
 	var skyPurple = color(228, 201, 222);
@@ -37,7 +38,6 @@ function setup() {
 	var skyOrange = color(236, 199, 170);
 	var skyOrange2 = color(236, 199, 170);
 	var skyOrange3 = color(236, 199, 170);
-	var gray = color(215, 215, 215);
 	var white = color(255, 255, 255);
 	var stars = color(250, 250, 250, 150);
 
@@ -65,8 +65,12 @@ function setup() {
 }
 
 
-
 function draw() {
+
+	var gray = color(215, 215, 215);
+	var orange = color('#FFE6CD');
+	var orangeShadow = color('#F4CBA2');
+	var orangeWind = color('#F7DCC0');
 
 	//i dont wanna type these out
 	var w = windowWidth;
@@ -75,17 +79,29 @@ function draw() {
 	//CLOUDLEFT
 	image(cloudLeft, 0, h/14, w/1.75, h/3);
 
+	//BLDG1
+	//face
+	fill(orange);
+	rect(w/14, h/2.25, w/6, h/1.75);
+	//shadow
+	fill(orangeShadow);
+	beginShape();
+	vertex(0, h/1.9);
+	vertex(w/14, h/2.25);
+	vertex(w/14, h);
+	vertex(0, h);
+	endShape();
+
+	//windows
+	fill(orangeWind);
+	for (var windaX = 130; windaX < 320; windaX += 70) {
+		for (var windaY = 365; windaY < innerHeight; windaY += 95) { //for every x, do a y too
+			rect(windaX, windaY, 50, 50);
+		}
+	}
 
 	//CLOUDRIGHT
 	image(cloudRight, window.innerWidth-w/12, h/1.95, w/12, h/7);
-
-
-	//BLDG1
-	beginShape();
-	vertex(0, w/2);
-	vertex(w/12, h/3);
-	vertex()
-	endShape();
 
 	//FOREGROUND
 	fill(gray);
