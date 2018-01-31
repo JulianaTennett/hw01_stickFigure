@@ -20,12 +20,12 @@ function setup() {
 	createCanvas(windowWidth, windowHeight);
 	gray="#F8F6F6";
 	white="#fffff";
-	// toolsX = (windowWidth/6)/2;
-	// penY = windowHeight/2;
-	// markerY = windowHeight/3.5;
-	toolsX = 100;
-	penY = 100;
-	markerY = 250;
+	toolsX = (windowWidth/6)/2;
+	penY = windowHeight/2;
+	markerY = windowHeight/3.5;
+	// toolsX = 100;
+	// penY = 100;
+	// markerY = 250;
 	penStroke = false;
 	markerStroke = false;
 
@@ -48,10 +48,10 @@ function draw() {
 
 	//IMAGES
 	imageMode(CENTER);
-	// image(pen, toolsX, penY, 100, 100);
-	// image(marker, toolsX, markerY, 100, 100);
-	image(pen, 100, 100, 100, 100);
-	image(marker, 100, 250, 100, 100);
+	image(pen, toolsX, penY, 100, 100);
+	image(marker, toolsX, markerY, 100, 100);
+	// image(pen, 100, 100, 100, 100);
+	// image(marker, 100, 250, 100, 100);
 
 	//make one of the strokes true when mouse is pressed
 	//when the stroke is true, this stroke style is applied
@@ -62,7 +62,7 @@ function draw() {
 			stroke(0, 255);
 			strokeWeight(1);
 		} else if (markerStroke) {
-			stroke(0, 200);
+			stroke(0, 220);
 			strokeWeight(7);
 		} else {
 			noStroke();
@@ -72,11 +72,11 @@ function draw() {
 }
 
 function mousePressed() {
-	if ((mouseX > 50) && (mouseX < 150) && (mouseY > 50) && (mouseY < 150)) {
+	if ((mouseX > toolsX - 50) && (mouseX < toolsX + 50) && (mouseY > penY - 50) && (mouseY < penY + 50)) {
 		penStroke = true;
 		markerStroke = false;
 	}
-	if ((mouseX > 50) && (mouseX < 150) && (mouseY > 200) && (mouseY < 300)) {
+	if ((mouseX > toolsX - 50) && (mouseX < toolsX + 50) && (mouseY > markerY - 50) && (mouseY < markerY + 50)) {
 		markerStroke = true;
 		penStroke = false;
 	}
