@@ -5,13 +5,17 @@ var blue;
 var blueLight;
 var gray;
 var white;
-//VARIABLES
+//COLOR VARIABLES
+var backgroundColor;
+var panelColor;
+var buttonColor;
 var strokeColor;
+var textColor;
+//POSITION VARIABLES
 var toolsX;
 var penY;
 var markerY;
 var eraserY;
-var clearY;
 var panelW;
 var purpleX;
 var blueX;
@@ -21,7 +25,6 @@ var colorY;
 var penStroke;
 var markerStroke;
 var eraserStroke;
-var backgroundColor;
 var purpleOn;
 var blueOn;
 var blackOn;
@@ -39,28 +42,34 @@ function preload() {
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+	//COLORS
 	gray="#F8F6F6";
 	white="#fffff";
 	purple="#F1DCE9";
 	purpleLight="#FBF0F7";
 	blue="#C4E2ED";
 	blueLight="E3F3F9";
-	toolsX = (width/6)/2;
-	penY = height/6;
-	markerY = height/3;
-	eraserY = height - (height/5);
-	clearY = height - (height/9);
-	panelW = width/6;
+	//COLOR VARIABLES
+	backgroundColor = white;
+	panelColor = gray;
+	buttonColor = white;
+	textColor = 0;
+	//POSITION VARIABLES
+	// toolsX = (width/6)/2;
+	// penY = height/6;
+	// markerY = height/3;
+	// eraserY = height - (height/5);
+	// panelW = width/6;
+	resizeElements();
 	penStroke = false;
 	markerStroke = false;
 	eraserStroke = false;
-	backgroundColor = white;
 	purpleOn = false;
 	blueOn = false;
 	blackOn = true;
 	colorD = 35;
-	colorX = panelW/4;
-	colorY = height/1.75;
+	// colorX = panelW/4;
+	// colorY = height/1.75;
 
 	//CANVAS ELEMENTS
 	background(backgroundColor);
@@ -72,8 +81,9 @@ function draw() {
 	white="#fffff";
 
 	//TOOL BAR
+	push();
 	noStroke();
-	fill(gray);
+	fill(panelColor);
 	rect(0, 0, panelW, height);
 	//tools
 	imageMode(CENTER);
@@ -81,15 +91,13 @@ function draw() {
 	image(marker, toolsX, markerY, 100, 100);
 	//buttons
 	noStroke();
-	fill(white);
+	fill(buttonColor);
 	rectMode(CENTER);
 	rect(toolsX, eraserY, 100, 50, 5); //eraser
-	rect(toolsX, clearY, 100, 50, 5); //clear
-	fill(0);
+	fill(textColor);
 	textSize(16);
 	textAlign(CENTER);
 	text('ERASER', toolsX, eraserY);
-	text('CLEAR', toolsX, clearY);
 	//colors
 	fill(purple);
 	ellipse(colorX, colorY, colorD, colorD);
@@ -97,11 +105,14 @@ function draw() {
 	ellipse(colorX*2, colorY, colorD, colorD);
 	fill(0);
 	ellipse(colorX*3, colorY, colorD, colorD);
+	pop();
 
 
 
 	if (mouseIsPressed) {
-		if (mouseX > windowWidth/6) {
+		if (mouseX > panelW) {
+
+			push();
 			if (penStroke) {
 				stroke(0, 255);
 				strokeWeight(3);
@@ -124,6 +135,7 @@ function draw() {
 				}
 			}
 			line(pmouseX, pmouseY, mouseX, mouseY); //draw!
+			pop();
 		}
 	}
 }
@@ -150,25 +162,34 @@ function mousePressed() {
 		purpleOn = false;
 		blueOn = false;
 		blackOn = false;
-	} else if ((mouseX > toolsX - 50) && (mouseX < toolsX + 50) && (mouseY > clearY - 25) && (mouseY < clearY + 25)) {
-		background(backgroundColor);
 	}
 	if ((mouseX > colorX - colorD/2) && (mouseX < colorX + colorD/2) && (mouseY > colorY - colorD/2) && (mouseY < colorY + colorD/2)) { //turn purple on
 		purpleOn = true;
 		blueOn = false;
 		blackOn = false;
+		panelColor = white;
 		backgroundColor = purpleLight;
+		buttonColor = purple;
+		textColor = white;
 		background(backgroundColor);
 	} else if ((mouseX > colorX*2 - colorD/2) && (mouseX < colorX*2 + colorD/2) && (mouseY > colorY - colorD/2) && (mouseY < colorY + colorD/2)) { //turn blue on
 		purpleOn = false;
 		blueOn = true;
 		blackOn = false;
 		backgroundColor = '#E3F3F9';
+		panelColor = white;
+		buttonColor = blue;
+		textColor = white;
 		background(backgroundColor);
 	} else if ((mouseX > colorX*3 - colorD/2) && (mouseX < colorX*3 + colorD/2) && (mouseY > colorY - colorD/2) && (mouseY < colorY + colorD/2)) { //turn black on
 		purpleOn = false;
 		blueOn = false;
 		blackOn = true;
+		panelColor= gray;
+		backgroundColor = white;
+		buttonColor = white;
+		textColor = 0;
+		background(backgroundColor);
 	}
 }
 
@@ -178,6 +199,17 @@ function keyTyped() {
 	}
 }
 
-function windowResize() {
+function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);  // full screen
+	resizeElements();
+}
+
+function resizeElements() {
+	toolsX = (width/6)/2;
+	penY = height/6;
+	markerY = height/3;
+	eraserY = height - (height/5);
+	panelW = width/6;
+	colorX = panelW/4;
+	colorY = height/1.75;
 }
