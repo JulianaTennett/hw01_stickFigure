@@ -46,11 +46,21 @@ function setup() {
 	textSize(18);
 
   s = '';
-
 }
 
 function draw() {
 	background(redLight);
+
+  var passionsArr = passionS.split('');
+  var startingX = 0;
+  var startingY = 50;
+  passionsArr.forEach( function(letter, index) {
+    startingX
+    push();
+    textFont(robotoMono);
+    text(letter, startingX + index*10, startingY);
+    pop();
+  });
 
   //TITLE
   push();
