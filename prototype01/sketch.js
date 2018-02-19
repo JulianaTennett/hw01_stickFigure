@@ -40,9 +40,7 @@ function setup() {
     depressBalls.push(new Ball(false));
   }
 
-
   s = "";
-
 }
 
 function draw() {
@@ -54,18 +52,6 @@ function draw() {
     manicBalls[i].move();
     manicBalls[i].display();
   }
- //  manic1.move();
- //  manic1.display();
- //  manic2.move();
- //  manic2.display();
- //  manic3.move();
- //  manic3.display();
- //  manic4.move();
- //  manic4.display();
-	// manic5.move();
- //  manic5.display();
-	// manic6.move();
- //  manic6.display();
 	pop();
 
 	push();
@@ -74,16 +60,8 @@ function draw() {
     depressBalls[i].move();
     depressBalls[i].display();
   }
-  // depress1.move();
-  // depress1.display();
-  // depress2.move();
-  // depress2.display();
-  // depress3.move();
-  // depress3.display();
-  // depress4.move();
-  // depress4.display();
-	pop();
-
+  pop();
+  
 	push();
 	fill(pink);
 	ellipse(manic5.x, manic5.y, 20, 20);
