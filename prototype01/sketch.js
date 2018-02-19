@@ -4,30 +4,42 @@ var blueColor = '#7E91AB';
 var white = '#fffff';
 var d;
 
-var manic1;
-var manic2;
-var manic3;
-var manic4;
-var manic5;
-var manic6;
+// var manic1;
+// var manic2;
+// var manic3;
+// var manic4;
+// var manic5;
+// var manic6;
 var s;
+
+var manicBalls = [];
+var depressBalls = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 	noStroke();
 
   // Create objects
-  manic1 = new Ball(true);
-  manic2 = new Ball(true);
-  manic3 = new Ball(true);
-  manic4 = new Ball(true);
-  manic5 = new Ball(true);
-  manic6 = new Ball(true);
+  // manic1 = new Ball(true);
+  // manic2 = new Ball(true);
+  // manic3 = new Ball(true);
+  // manic4 = new Ball(true);
+  // manic5 = new Ball(true);
+  // manic6 = new Ball(true);
 
-  depress1 = new Ball(false);
-  depress2 = new Ball(false);
-  depress3 = new Ball(false);
-  depress4 = new Ball(false);
+  // depress1 = new Ball(false);
+  // depress2 = new Ball(false);
+  // depress3 = new Ball(false);
+  // depress4 = new Ball(false);
+
+  for (let i = 0; i < 6; i++) {
+    manicBalls.push(new Ball(true));
+  }
+
+  for (let i = 0; i < 4; i++) {
+    depressBalls.push(new Ball(false));
+  }
+
 
   s = "";
 
@@ -38,30 +50,38 @@ function draw() {
 
 	push();
 	fill(redColor);
-  manic1.move();
-  manic1.display();
-  manic2.move();
-  manic2.display();
-  manic3.move();
-  manic3.display();
-  manic4.move();
-  manic4.display();
-	manic5.move();
-  manic5.display();
-	manic6.move();
-  manic6.display();
+  for (let i = 0; i < manicBalls.length; i++) {
+    manicBalls[i].move();
+    manicBalls[i].display();
+  }
+ //  manic1.move();
+ //  manic1.display();
+ //  manic2.move();
+ //  manic2.display();
+ //  manic3.move();
+ //  manic3.display();
+ //  manic4.move();
+ //  manic4.display();
+	// manic5.move();
+ //  manic5.display();
+	// manic6.move();
+ //  manic6.display();
 	pop();
 
 	push();
 	fill(blueColor);
-  depress1.move();
-  depress1.display();
-  depress2.move();
-  depress2.display();
-  depress3.move();
-  depress3.display();
-  depress4.move();
-  depress4.display();
+  for (let i = 0; i < depressBalls.length; i++) {
+    depressBalls[i].move();
+    depressBalls[i].display();
+  }
+  // depress1.move();
+  // depress1.display();
+  // depress2.move();
+  // depress2.display();
+  // depress3.move();
+  // depress3.display();
+  // depress4.move();
+  // depress4.display();
 	pop();
 
 	push();
