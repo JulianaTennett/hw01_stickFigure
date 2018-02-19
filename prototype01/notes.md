@@ -22,13 +22,16 @@ Next steps:
     + In order to do this, you cannot not use simply random() anymore, you have to do some precalculation of random values, and then normalize them on the screen. See code!
 
 - Make only the manic or depressive circles appear at one time
+    + Will need more explanation for this
 
 - Make the circle all one class, have them move periodically up or down on the screen and change color, hover message, and motion depending whether they are at the top or bottom
+    + Also for this 
 
 - Make the circles shoot up and down on the screen in a dramatic, noticeable gesture (like rapidly jiggling, then shooting!) 
+    + And this... ;)
 
 - Concept: allowing text to display in time intervals for the “in the moment” thoughts I had when writing the piece, which are themselves part of the piece (see the google doc to read the whole piece in it’s original, linear progression). I think I will eventually do this by having this text display when the circles start rapidly moving, and before they drop to the bottom or shoot to the top
-
+    + we will work on this! 
 
 
 SO, I WILL START TRYING TO TACKLE THESE NEXT STEPS right now. I’m not even sure where to start on a lot of them, but I will start! If you have feedback, suggestions, or anything please let me know — I could use all the technical help I can get!
