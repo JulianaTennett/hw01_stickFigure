@@ -23,6 +23,13 @@ class Ball {
     }
 
     display() {
+        push();
+        if (this.maniac) {
+            fill(redColor);
+        } else {
+            fill(blueColor);
+        }
         ellipse(this.x, this.y, 2 * this.r, 2 * this.r);
+        pop();
     }
 }

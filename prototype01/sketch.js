@@ -46,21 +46,21 @@ function setup() {
 function draw() {
   background(pink);
 
-	push();
-	fill(redColor);
+	// push();
+	// fill(redColor);
   for (let i = 0; i < manicBalls.length; i++) {
     manicBalls[i].move();
     manicBalls[i].display();
   }
-	pop();
+	// pop();
 
-	push();
-	fill(blueColor);
+	// push();
+	// fill(blueColor);
   for (let i = 0; i < depressBalls.length; i++) {
     depressBalls[i].move();
     depressBalls[i].display();
   }
-  pop();
+  // pop();
   
 	push();
 	fill(pink);
