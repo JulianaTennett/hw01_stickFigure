@@ -3,10 +3,6 @@ var redColor = '#F15E6E';
 var blueColor = '#7E91AB';
 var white = '#fffff';
 var d;
-// var randomX;
-// var randomY;
-// 	randomX = [random(d, width/6), random(width/6, width/3), random(width/3, width/2), random(width/2, (width/3)*2), random((width/3)*2, (width/6)*5), random((width/6)*5, width-d)];
-// 	randomY = [random(d, height/3), random(d, height/3), random(d, height/3), random(d, height/3), random(d, height/3), random(d, height/3), ];
 
 var manic1;
 var manic2;
@@ -20,20 +16,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 	noStroke();
 
- //  // Create object
- //  manic1 = new manic();
- //  manic2 = new manic();
- //  manic3 = new manic();
- //  manic4 = new manic();
-	// manic5 = new manic();
-	// manic6 = new manic();
-
-	// depress1 = new depress();
- //  depress2 = new depress();
- //  depress3 = new depress();
- //  depress4 = new depress();
-
-
+  // Create objects
   manic1 = new Ball(true);
   manic2 = new Ball(true);
   manic3 = new Ball(true);
@@ -115,34 +98,3 @@ function draw() {
 
 }
 
-// // manic class
-// function manic() {
-// 	this.r = 25;
-//   this.x = random(this.r, width-this.r);
-//   this.y = random(this.r, height/3);
-
-//   this.move = function() {
-//     this.x += random(-1, 1);
-//     this.y += random(-1, 1);
-//   };
-
-//   this.display = function() {
-//     ellipse(this.x, this.y, this.r*2, this.r*2);
-//   };
-// }
-
-// // depressive class
-// function depress() {
-// 	this.r = 25;
-//   this.x = random(this.r, width-this.r);
-//   this.y = random(2*height/3, height-this.r);
-
-//   this.move = function() {
-//     this.x += random(-.25, .25);
-//     this.y += random(-.25, .25);
-//   };
-
-//   this.display = function() {
-//     ellipse(this.x, this.y, this.r*2, this.r*2);
-//   };
-// }
