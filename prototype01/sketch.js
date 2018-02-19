@@ -20,18 +20,31 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 	noStroke();
 
-  // Create object
-  manic1 = new manic();
-  manic2 = new manic();
-  manic3 = new manic();
-  manic4 = new manic();
-	manic5 = new manic();
-	manic6 = new manic();
+ //  // Create object
+ //  manic1 = new manic();
+ //  manic2 = new manic();
+ //  manic3 = new manic();
+ //  manic4 = new manic();
+	// manic5 = new manic();
+	// manic6 = new manic();
 
-	depress1 = new depress();
-  depress2 = new depress();
-  depress3 = new depress();
-  depress4 = new depress();
+	// depress1 = new depress();
+ //  depress2 = new depress();
+ //  depress3 = new depress();
+ //  depress4 = new depress();
+
+
+  manic1 = new Ball(true);
+  manic2 = new Ball(true);
+  manic3 = new Ball(true);
+  manic4 = new Ball(true);
+  manic5 = new Ball(true);
+  manic6 = new Ball(true);
+
+  depress1 = new Ball(false);
+  depress2 = new Ball(false);
+  depress3 = new Ball(false);
+  depress4 = new Ball(false);
 
   s = "";
 
@@ -102,34 +115,34 @@ function draw() {
 
 }
 
-// manic class
-function manic() {
-	this.r = 25;
-  this.x = random(this.r, width-this.r);
-  this.y = random(this.r, height/3);
+// // manic class
+// function manic() {
+// 	this.r = 25;
+//   this.x = random(this.r, width-this.r);
+//   this.y = random(this.r, height/3);
 
-  this.move = function() {
-    this.x += random(-1, 1);
-    this.y += random(-1, 1);
-  };
+//   this.move = function() {
+//     this.x += random(-1, 1);
+//     this.y += random(-1, 1);
+//   };
 
-  this.display = function() {
-    ellipse(this.x, this.y, this.r*2, this.r*2);
-  };
-}
+//   this.display = function() {
+//     ellipse(this.x, this.y, this.r*2, this.r*2);
+//   };
+// }
 
-// depressive class
-function depress() {
-	this.r = 25;
-  this.x = random(this.r, width-this.r);
-  this.y = random(2*height/3, height-this.r);
+// // depressive class
+// function depress() {
+// 	this.r = 25;
+//   this.x = random(this.r, width-this.r);
+//   this.y = random(2*height/3, height-this.r);
 
-  this.move = function() {
-    this.x += random(-.25, .25);
-    this.y += random(-.25, .25);
-  };
+//   this.move = function() {
+//     this.x += random(-.25, .25);
+//     this.y += random(-.25, .25);
+//   };
 
-  this.display = function() {
-    ellipse(this.x, this.y, this.r*2, this.r*2);
-  };
-}
+//   this.display = function() {
+//     ellipse(this.x, this.y, this.r*2, this.r*2);
+//   };
+// }
