@@ -15,8 +15,6 @@ class Ball {
             this.y = random(0.666 * height, height - this.r);
             this.color = blueColor;
         }
-
-
     }
 
     // METHODS
