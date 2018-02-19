@@ -4,10 +4,19 @@ class Ball {
 
     // Constructor function, used to create new instances
     constructor(piece) {
+        // Taken from the constructor
         this.piece = piece
-        this.r = 25;
-        this.x = random(this.r, width - this.r);
 
+        // Fixed values for all balls
+        this.r = 25;
+        this.wiggleRange = 1;
+        this.easeRange = 20;
+
+        // Some randomly generated values
+        this.x = random(this.r, width - this.r);
+        this.easing = 0.05 + random(-0.01, 0.01);  // add a little variation so that all balls don't pulse at the exact same rate
+
+        // Values that depend on `maniacness`
         if (this.piece.maniac == true) {
             this.y = random(this.r, height / 3);
             this.color = redColor;
@@ -15,13 +24,29 @@ class Ball {
             this.y = random(0.666 * height, height - this.r);
             this.color = blueColor;
         }
+
+        // Initiate target for sidewayseased movement
+        this.targetX = this.x;
     }
 
     // METHODS
     move() {
-        let cap = this.piece.maniac == true ? 1 : 0.25;
-        this.x += random(-cap, cap);
-        this.y += random(-cap, cap);
+        // Wiggle or ease sideways
+        if (this.piece.maniac == true) {
+            this.x += random(-this.wiggleRange, this.wiggleRange);
+            this.y += random(-this.wiggleRange, this.wiggleRange);
+        } else {
+            let dx = (this.targetX - this.x);
+            this.x += this.easing * dx;
+            if (abs(dx) < 0.1) {
+                // Use the direction of the ball to go to the other side
+                if (dx > 0) {
+                    this.targetX = this.x - this.easeRange;
+                } else {
+                    this.targetX = this.x + this.easeRange;
+                }
+            }
+        }
     }
 
     display() {
