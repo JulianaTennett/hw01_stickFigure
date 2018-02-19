@@ -3,13 +3,12 @@
 class Ball {
 
     // Constructor function, used to create new instances
-    constructor(maniac, message) {
-        this.maniac = maniac;
-        this.message = message;
+    constructor(piece) {
+        this.piece = piece
         this.r = 25;
         this.x = random(this.r, width - this.r);
 
-        if (this.maniac == true) {
+        if (this.piece.maniac == true) {
             this.y = random(this.r, height / 3);
         } else {
             this.y = random(0.666 * height, height - this.r);
@@ -18,14 +17,14 @@ class Ball {
 
     // METHODS
     move() {
-        let cap = this.maniac == true ? 1 : 0.25;
+        let cap = this.piece.maniac == true ? 1 : 0.25;
         this.x += random(-cap, cap);
         this.y += random(-cap, cap);
     }
 
     display() {
         push();
-        if (this.maniac) {
+        if (this.piece.maniac) {
             fill(redColor);
         } else {
             fill(blueColor);
