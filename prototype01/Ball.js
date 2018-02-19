@@ -10,9 +10,13 @@ class Ball {
 
         if (this.piece.maniac == true) {
             this.y = random(this.r, height / 3);
+            this.color = redColor;
         } else {
             this.y = random(0.666 * height, height - this.r);
+            this.color = blueColor;
         }
+
+
     }
 
     // METHODS
@@ -24,11 +28,7 @@ class Ball {
 
     display() {
         push();
-        if (this.piece.maniac) {
-            fill(redColor);
-        } else {
-            fill(blueColor);
-        }
+        fill(this.color);
         ellipse(this.x, this.y, 2 * this.r, 2 * this.r);
         pop();
     }
