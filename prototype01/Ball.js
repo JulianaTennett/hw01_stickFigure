@@ -3,9 +3,14 @@
 class Ball {
 
     // Constructor function, used to create new instances
-    constructor(piece) {
+    constructor(piece, xpos) {
         // Taken from the constructor
         this.piece = piece
+        if (xpos != null) {
+            this.x = xpos;
+        } else {
+            this.x = random(this.r, width - this.r);
+        }
 
         // Fixed values for all balls
         this.r = 25;
@@ -13,7 +18,6 @@ class Ball {
         this.easeRange = 20;
 
         // Some randomly generated values
-        this.x = random(this.r, width - this.r);
         this.easing = 0.05 + random(-0.01, 0.01);  // add a little variation so that all balls don't pulse at the exact same rate
 
         // Values that depend on `maniacness`

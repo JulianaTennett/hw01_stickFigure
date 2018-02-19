@@ -19,6 +19,7 @@ Next steps:
     + Let's keep maniac movement as a wiggle, but change depressed one to an eased motion form left to right, see the code
 
 - Right now the circles display at a random x,y coordinate in the upper or lower third of the screen, but I would like to ensure they’re spaced out aesthetically. Before making the class so the circles can jiggle, I had used a for loop with an array that selected a random x,y at coordinates in each sixth of the screen, then drew a circle 6 times, one for each position in the array. When I opted for the class, so I could display and giggle the circles in one place, I couldn’t figure out how to specify positions in sixths with an array or otherwise...
+    + In order to do this, you cannot not use simply random() anymore, you have to do some precalculation of random values, and then normalize them on the screen. See code!
 
 - Make only the manic or depressive circles appear at one time
 
