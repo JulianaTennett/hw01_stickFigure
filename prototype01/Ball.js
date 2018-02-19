@@ -3,8 +3,9 @@
 class Ball {
 
     // Constructor function, used to create new instances
-    constructor(maniac) {
+    constructor(maniac, message) {
         this.maniac = maniac;
+        this.message = message;
         this.r = 25;
         this.x = random(this.r, width - this.r);
 
@@ -31,5 +32,13 @@ class Ball {
         }
         ellipse(this.x, this.y, 2 * this.r, 2 * this.r);
         pop();
+    }
+
+    // Returns true if the coordinates are inside this ball
+    isInside(xpos, ypos) {
+        if (dist(this.x, this.y, xpos, ypos) < this.r) {
+            return true
+        }
+        return false;
     }
 }
