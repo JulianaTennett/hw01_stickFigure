@@ -13,7 +13,7 @@ class Ball {
         }
 
         // Fixed values for all balls
-        this.r = 25;
+        this.r = 35;
         this.wiggleRange = 1;
         this.easeRange = 20;
 

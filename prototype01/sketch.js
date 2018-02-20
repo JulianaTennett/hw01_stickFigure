@@ -14,6 +14,12 @@ var b1, b2, c1, c2;
 // Let's replace everything with one array for all balls!
 var allBalls = [];
 
+var asap;
+
+function preload() {
+  myFont = loadFont('assets/fonts/Asap-Regular.ttf');
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 	noStroke();
@@ -21,15 +27,7 @@ function setup() {
   c1 = color('#F3C7C7');
   c2 = color('#B9D8FC');
 
-  /*
-   Since we want nice spaced even distribution in the X axis for each group of balls,
-   there is some precalcs we need to do:
-   - Figure out how many maniacs/depressed balls are in the `data` object
-   - Generate random numbers for each spacing between balls in the group
-    (+1 for the last gap to the gap between the last ball and the right of the screen)
-   - Find the random total per group and normalize these random numbers for screen values
-   - Initiate the balls with those random x values :)
-   */
+  //Find spacing for x axis of balls
   let maniacCount = 0,
       depressCount = 0;
   for (let i = 0; i < data.pieces.length; i++) {
@@ -88,10 +86,6 @@ function setup() {
 }
 
 function draw() {
-  // background(pink);
-  // var inter = map(i, y, y+h, 0, 1);
-  // var backColor = lerpColor(pink, lightBlue, inter);
-  // background(backColor);
   setGradient(0, 0, width, height, c1, c2, Y_AXIS);
 
   // Manage all the balls
@@ -107,6 +101,8 @@ function draw() {
   fill(0);
   textAlign(LEFT);
   rectMode(CENTER);
+  textFont('asap');
+  textSize(16);
   text(screenMessage, width/2, height/2, 500, 100);
 	pop();
 
@@ -114,6 +110,7 @@ function draw() {
 
 function setGradient(x, y, w, h, c1, c2, axis) {
 
+  push();
   noFill();
 
   if (axis == Y_AXIS) {  // Top to bottom gradient
@@ -132,4 +129,5 @@ function setGradient(x, y, w, h, c1, c2, axis) {
       line(i, y, i, y+h);
     }
   }
+  pop();
 }
