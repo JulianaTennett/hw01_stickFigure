@@ -90,6 +90,7 @@ function setup() {
 function draw() {
   setGradient(0, 0, width, height, c1, c2, Y_AXIS);
 
+  screenMessage = "";
   // Manage all the balls
   for (let i = 0; i < allBalls.length; i++) {
     allBalls[i].move();
