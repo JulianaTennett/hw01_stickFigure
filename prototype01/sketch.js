@@ -16,10 +16,13 @@ var allBalls = [];
 
 var screenMsg;
 
+//fonts
 var asap;
+var bitter;
 
 function preload() {
-  myFont = loadFont('assets/fonts/Asap-Regular.ttf');
+  asap = loadFont('assets/fonts/Asap-Regular.ttf');
+  bitter = loadFont('assets/fonts/Bitter-Italic.ttf');
 }
 
 function setup() {
@@ -90,6 +93,8 @@ function setup() {
 function draw() {
   setGradient(0, 0, width, height, c1, c2, Y_AXIS);
 
+  screenMsg = new Billboard(screenMessage);
+	screenMsg.displayTitle();
   screenMessage = "";
   // Manage all the balls
   for (let i = 0; i < allBalls.length; i++) {
@@ -97,11 +102,9 @@ function draw() {
     allBalls[i].display();
     if (allBalls[i].isInside(mouseX, mouseY) == true) {
       screenMessage = allBalls[i].piece.message;
+      screenMsg.displayMsg();
     }
   }
-
-  screenMsg = new Billboard(screenMessage);
-	screenMsg.display();
 
 }
 

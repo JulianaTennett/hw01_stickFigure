@@ -7,7 +7,23 @@ class Billboard {
     this.y = height/2;
   }
 
-  display() {
+  displayTitle() {
+    push();
+    rectMode(CENTER);
+    fill('#C1C4E1');
+    rect(this.x + 10, this.y + 10, 600, 265, 20);
+    fill(255);
+    rect(this.x, this.y, 600, 265, 20);
+    fill('#D3D0E4');
+    textAlign(CENTER);
+    textStyle(ITALIC);
+    textFont('bitter');
+    textSize(36);
+    text('Some Things on Cyclothymia', this.x, this.y);
+    pop();
+  }
+
+  displayMsg() {
     push();
     rectMode(CENTER);
     fill(255);

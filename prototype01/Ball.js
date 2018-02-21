@@ -22,10 +22,10 @@ class Ball {
 
         // Values that depend on `maniacness`
         if (this.piece.maniac == true) {
-            this.y = random(this.r, height / 3);
+            this.y = random(this.r, height / 4);
             this.color = redColor;
         } else {
-            this.y = random(0.666 * height, height - this.r);
+            this.y = random(height * .75, height - this.r);
             this.color = blueColor;
         }
 
