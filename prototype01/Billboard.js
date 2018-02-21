@@ -1,7 +1,7 @@
-class Msg {
+class Billboard {
 
-  constructor(msg) {
-    this.msg = msg;
+  constructor(message) {
+    this.message = message;
     //fixed values
     this.x = width/2;
     this.y = height/2;
@@ -16,7 +16,7 @@ class Msg {
     textAlign(LEFT);
     textFont('asap');
     textSize(16);
-    text(this.msg, this.x, this.y, 500, 165);
+    text(this.message, this.x, this.y, 500, 165);
     pop();
   }
 

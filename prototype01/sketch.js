@@ -99,7 +99,7 @@ function draw() {
     }
   }
 
-  screenMsg = new Msg(screenMessage);
+  screenMsg = new Billboard(screenMessage);
 	screenMsg.display();
 
 }
