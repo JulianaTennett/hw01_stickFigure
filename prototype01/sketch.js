@@ -14,6 +14,8 @@ var b1, b2, c1, c2;
 // Let's replace everything with one array for all balls!
 var allBalls = [];
 
+var screenMsg;
+
 var asap;
 
 function preload() {
@@ -97,14 +99,8 @@ function draw() {
     }
   }
 
-	push();
-  fill(0);
-  textAlign(LEFT);
-  rectMode(CENTER);
-  textFont('asap');
-  textSize(16);
-  text(screenMessage, width/2, height/2, 500, 100);
-	pop();
+  screenMsg = new Msg(screenMessage);
+	screenMsg.display();
 
 }
 
