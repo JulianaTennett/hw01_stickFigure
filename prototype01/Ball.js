@@ -39,6 +39,18 @@ class Ball {
         if (this.piece.maniac == true) {
             this.x += random(-this.wiggleRange, this.wiggleRange);
             this.y += random(-this.wiggleRange, this.wiggleRange);
+            if (this.y < this.r) {
+              this.y = this.r;
+            }
+            if (this.y > height/4 - this.r) {
+              this.y = height/4 - this.r;
+            }
+            if (this.x > width+this.r) {
+              this.y = width+this.r;
+            }
+            if (this.x < this.r) {
+              this.x = this.r;
+            }
         } else {
             let dx = (this.targetX - this.x);
             this.x += this.easing * dx;
