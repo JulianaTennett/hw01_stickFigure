@@ -29,7 +29,7 @@ class Billboard {
     fill(255);
     rect(this.x, this.y, 600, 265, 20);
     fill(0);
-    textAlign(LEFT);
+    textAlign(LEFT, CENTER);
     textFont('asap');
     textSize(16);
     text(this.message, this.x, this.y, 500, 165);

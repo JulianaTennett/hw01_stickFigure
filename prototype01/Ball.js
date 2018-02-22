@@ -13,9 +13,12 @@ class Ball {
         }
 
         // Fixed values for all balls
-        this.r = 35;
+        this.r = 30;
+        this.intialR = 0;
         this.wiggleRange = 1;
         this.easeRange = 20;
+        this.grow = random(1.5, 2.5);
+        this.delay = random(0, 15);
 
         // Some randomly generated values
         this.easing = 0.05 + random(-0.01, 0.01);  // add a little variation so that all balls don't pulse at the exact same rate
@@ -68,15 +71,20 @@ class Ball {
     display() {
         push();
         fill(this.color);
-        ellipse(this.x, this.y, 2 * this.r, 2 * this.r);
+        if (this.intialR < 30 && frameCount > this.delay) {
+          this.intialR += this.grow;
+        }
+        ellipse(this.x, this.y, 2 * this.intialR, 2 * this.intialR);
         pop();
     }
 
     // Returns true if the coordinates are inside this ball
     isInside(xpos, ypos) {
         if (dist(this.x, this.y, xpos, ypos) < this.r) {
-            return true
+            return true;
+            this.r += 5;
         }
         return false;
+        this.r = 30;
     }
 }
