@@ -1,6 +1,6 @@
 
 // Generic Ball class
-class Ball {
+class Textmsg {
 
     // Constructor function, used to create new instances
     constructor(piece, xpos) {
@@ -19,6 +19,9 @@ class Ball {
         this.easeRange = 20;
         this.grow = random(1.5, 2.5);
         this.delay = random(0, 15);
+
+        this.textScale = 0.10;
+        this.targetScale = 0.10;
 
         // Some randomly generated values
         this.easing = 0.05 + random(-0.01, 0.01);  // add a little variation so that all balls don't pulse at the exact same rate
@@ -71,11 +74,17 @@ class Ball {
     display() {
         push();
         fill(this.color);
-        if (this.intialR < 30 && frameCount > this.delay) {
-          this.intialR += this.grow;
-        }
-        ellipse(this.x, this.y, 2 * this.intialR, 2 * this.intialR);
+        translate(this.x, this.y);
+        scale(this.textScale);
+        rectMode(CENTER);
+        textAlign(LEFT, CENTER);
+        text(this.piece.message, 0, 0, 250, 500);
         pop();
+    }
+
+    update() {
+      let ds = (this.targetScale - this.textScale);
+      this.textScale += this.easing * ds;
     }
 
     // Returns true if the coordinates are inside this ball
@@ -86,5 +95,9 @@ class Ball {
         }
         return false;
         this.r = 30;
+    }
+
+    expand() {
+      this.targetScale = 1.0;
     }
 }

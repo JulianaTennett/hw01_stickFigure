@@ -1,6 +1,6 @@
 var pink = '#F3C7C7';
 var lightBlue = '#B9D8FC';
-var redColor = '#F15E6E';
+var redColor = '#D47E8E';
 var blueColor = '#7E91AB';
 var white = '#fffff';
 var screenMessage = "";
@@ -12,9 +12,7 @@ var X_AXIS = 2;
 var b1, b2, c1, c2;
 
 // Let's replace everything with one array for all balls!
-var allBalls = [];
-
-var screenMsg;
+var allMsgs = [];
 
 //fonts
 var asap;
@@ -77,15 +75,15 @@ function setup() {
       depIt = 0;
   for (let i = 0; i < data.pieces.length; i++) {
     let pieceObj = data.pieces[i];
-    let ball;
+    let msg;
     if (pieceObj.maniac == true) {
-      ball = new Ball(pieceObj, maniacGaps[manIt]);
+      msg = new Textmsg(pieceObj, maniacGaps[manIt]);
       manIt++;
     } else {
-      ball = new Ball(pieceObj, depressGaps[depIt]);
+      msg = new Textmsg(pieceObj, depressGaps[depIt]);
       depIt++;
     }
-    allBalls.push(ball);
+    allMsgs.push(msg);
   }
 
 }
@@ -93,16 +91,15 @@ function setup() {
 function draw() {
   setGradient(0, 0, width, height, c1, c2, Y_AXIS);
 
-  screenMsg = new Billboard(screenMessage);
-	screenMsg.displayTitle();
-  screenMessage = "";
+  titleMsg = new Title();
+	titleMsg.displayTitle();
   // Manage all the balls
-  for (let i = 0; i < allBalls.length; i++) {
-    allBalls[i].move();
-    allBalls[i].display();
-    if (allBalls[i].isInside(mouseX, mouseY) == true) {
-      screenMessage = allBalls[i].piece.message;
-      screenMsg.displayMsg();
+  for (let i = 0; i < allMsgs.length; i++) {
+    allMsgs[i].move();
+    allMsgs[i].update();
+    allMsgs[i].display();
+    if (allMsgs[i].isInside(mouseX, mouseY) == true) {
+      allMsgs[i].expand();
     }
   }
 
