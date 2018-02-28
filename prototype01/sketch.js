@@ -95,11 +95,14 @@ function draw() {
 	titleMsg.displayTitle();
   // Manage all the balls
   for (let i = 0; i < allMsgs.length; i++) {
-    allMsgs[i].move();
+    // allMsgs[i].move();
     allMsgs[i].update();
     allMsgs[i].display();
     if (allMsgs[i].isInside(mouseX, mouseY) == true) {
       allMsgs[i].expand();
+    } else {
+      allMsgs[i].shrink();
+      allMsgs[i].move();
     }
   }
 

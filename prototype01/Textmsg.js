@@ -100,4 +100,8 @@ class Textmsg {
     expand() {
       this.targetScale = 1.0;
     }
+
+    shrink() {
+      this.targetScale = .10;
+    }
 }
