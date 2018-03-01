@@ -5,9 +5,9 @@
 var data = {
 	pieces: [
 		{ 	id: 1,
-			maniac: false,
-			date: "10/11/16",
-			message: '"u ever get hit with such a huge wave of vague, overwhelming emotions and don’t know how to process the sudden rush of feeling in your stomach so you just wanna scream for no reason but ur in public"'
+			maniac: true,
+			date: "9/23/16",
+			message: '"I AM IN A GREAT MOOD!!!!!!!!!!!!!!!!!!!!!!!!!!!!! IT’S A GREAT DAY!!!!!!!!!!!!!!!!"'
 		},
 		{
 			id: 2,
@@ -41,9 +41,9 @@ var data = {
 		},
 		{
 			id: 7,
-			maniac: true,
-			date: "9/23/16",
-			message: '"I AM IN A GREAT MOOD!!!!!!!!!!!!!!!!!!!!!!!!!!!!! IT’S A GREAT DAY!!!!!!!!!!!!!!!!"'
+			maniac: false,
+			date: "10/11/16",
+			message: '"u ever get hit with such a huge wave of vague, overwhelming emotions and don’t know how to process the sudden rush of feeling in your stomach so you just wanna scream for no reason but ur in public"'
 		},
 		{
 			id: 8,
